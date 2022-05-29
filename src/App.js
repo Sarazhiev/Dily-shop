@@ -9,6 +9,9 @@ import Shops from "./pages/Shops/Shops";
 import Charity from "./pages/Charity/Charity";
 import Layout from "./Layout/Layout";
 import Auth from "./pages/Auth/Auth";
+import './app.scss'
+import Confirm from "./pages/Auth/Confirm/Confirm";
+import Register from "./pages/Auth/Register/Register";
 
 
 function App() {
@@ -29,7 +32,9 @@ function App() {
          <Route path='shops' element={<Shops/>}/>
          <Route path='charity' element={<Charity/>}/>
        </Route>
-       <Route path='/Auth' element={<Auth/>}/>
+       <Route path='/auth' element={<Auth/>}/>
+       <Route path='/confirm' element={<Confirm/>}/>
+       <Route path='/register' element={<Register/>}/>
      </Routes>
     </div>
   );

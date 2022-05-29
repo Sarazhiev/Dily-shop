@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'TT Norms', sans-serif;
+  font-style: normal;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@import "./Layout/Header/header";
+@import "pages/Auth/auth";
+@import "./pages/Auth/Register/register";
