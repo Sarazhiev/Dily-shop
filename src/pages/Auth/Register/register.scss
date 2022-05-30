@@ -2,15 +2,13 @@
   justify-content: space-between;
   background: url("bg.png");
   display: flex;
-  align-items: center;
-  height: 100vh;
   &__form {
     width: 60%;
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     padding: 20px 50px;
   }
 
@@ -30,8 +28,8 @@
     line-height: 150%;
     display: flex;
     align-items: center;
-    text-align: center;
     color: #787A80;
+    margin-bottom: 20px;
   }
   &__label {
     font-weight: 400;

@@ -23,6 +23,7 @@
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.52.1",
     "scss": "^0.2.4",
+    "swiper": "^8.1.6",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

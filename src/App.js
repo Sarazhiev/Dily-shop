@@ -12,6 +12,7 @@ import Auth from "./pages/Auth/Auth";
 import './app.scss'
 import Confirm from "./pages/Auth/Confirm/Confirm";
 import Register from "./pages/Auth/Register/Register";
+import Login from "./pages/Auth/Login/Login";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
        <Route path='/auth' element={<Auth/>}/>
        <Route path='/confirm' element={<Confirm/>}/>
        <Route path='/register' element={<Register/>}/>
+       <Route path='/login' element={<Login/>}/>
      </Routes>
     </div>
   );

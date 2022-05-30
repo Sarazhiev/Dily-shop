@@ -2,6 +2,9 @@ import React, {useContext, useRef} from 'react';
 import InputMask from 'react-input-mask';
 import {Link, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
+import {AiFillGoogleCircle} from 'react-icons/ai'
+import {FiMail} from 'react-icons/fi'
+import {FaGithub} from 'react-icons/fa'
 
 const Register = () => {
 
@@ -124,6 +127,13 @@ const Register = () => {
                         value === password.current || "The password do not match"
                 })}/>
                 {errors?.confirmPwd && <p>{errors?.confirmPwd?.message}</p>}
+
+                <div className='auth__icons'>
+                    <p className='auth__icon'><AiFillGoogleCircle/></p>
+                    <p className='auth__icon'><FiMail/></p>
+                    <p className='auth__icon'><FaGithub/></p>
+                </div>
+
                 <button className='register__btn'>Зарегестрироваться</button>
                 <p className='register__quest'>уже есть аккаунт? <Link className='register__link' to='/login'>Войти</Link> </p>
                 <Link to='/' className='home'>Вернуться на главную страницу</Link>
