@@ -14,6 +14,7 @@ import Confirm from "./pages/Auth/Confirm/Confirm";
 import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
 import Accessories from "./pages/Accessories/Accessories";
+import Service from "./pages/Service/Service";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                     <Route path='accessories' element={<Accessories/>}/>
                     <Route path='shops' element={<Shops/>}/>
                     <Route path='charity' element={<Charity/>}/>
+                    <Route path='service' element={<Service/>}/>
                 </Route>
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/confirm' element={<Confirm/>}/>

@@ -14,7 +14,6 @@ const Banner = () => {
         <section className='banner'>
                 <Swiper
                     slidesPerView={2}
-                    spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
                         delay: 2500,
