@@ -14,6 +14,16 @@
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.new-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  column-gap: 30px;
+}
+
 .icon {
   color: #00C65E;
 }
@@ -23,3 +33,6 @@
 @import "pages/Auth/Login/login";
 @import "./pages/Home/Banner/banner";
 @import "pages/Home/Slider/slider";
+@import "./pages/Home/Selection/selection";
+@import "./pages/Accessories/accessories";
+@import "./pages/Accessories/Sidebar/sidebar";

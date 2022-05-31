@@ -1,9 +1,12 @@
 import React from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {AiOutlineSearch} from 'react-icons/ai'
 import {FaTelegramPlane} from 'react-icons/fa'
 
 const Header = () => {
+
+    const navigate = useNavigate();
+
     return (
         <header>
             <div className='header__top'>
@@ -59,9 +62,13 @@ const Header = () => {
             <div className='header-under'>
                 <div className="container">
                     <div className='header-under__content'>
-                        <select className='header-under__select' name="select">
+                        <select onChange={(e) => navigate(`${e.target.value}`)} className='header-under__select' name="select">
                             <option value="value1">Личные вещи</option>
-                            <option value="value2">Телефоны и аксессуары</option>
+                            <option value="/accessories">
+
+                                    Телефоны и аксессуары
+
+                            </option>
                             <option value="value3">Электроника</option>
                             <option value="value4">Бытовая техника</option>
                             <option value="value5">Дом и сад</option>

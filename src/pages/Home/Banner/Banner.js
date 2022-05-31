@@ -12,9 +12,8 @@ import img7 from "./5.svg";
 const Banner = () => {
     return (
         <section className='banner'>
-            <div className="container">
                 <Swiper
-                    slidesPerView={1.8}
+                    slidesPerView={2}
                     spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
@@ -24,7 +23,7 @@ const Banner = () => {
                     loop={true}
                     autoPlay={true}
                     keyboard={true}
-                    navigation={true}
+                    navigation={false}
                     modules={[Navigation, Mousewheel, Keyboard, Autoplay]}
                     className="mySwiper"
                 >
@@ -36,7 +35,6 @@ const Banner = () => {
                     <SwiperSlide><div className='banner__content'><div><img src={img6} alt="img"/></div></div></SwiperSlide>
                     <SwiperSlide><div className='banner__content'><div><img src={img7} alt="img"/></div></div></SwiperSlide>
                 </Swiper>
-            </div>
         </section>
     );
 };
