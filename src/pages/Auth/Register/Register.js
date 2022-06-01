@@ -2,13 +2,13 @@ import React, { useRef} from 'react';
 import InputMask from 'react-input-mask';
 import {Link, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {AiFillGoogleCircle} from 'react-icons/ai'
 import {FiMail} from 'react-icons/fi'
 import {FaGithub} from 'react-icons/fa'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../../../firebase/firebase";
 import {useDispatch} from "react-redux";
 import {registerUser} from "../../../redux/reducers/user";
+import Google from "../RegisterOrLoginFromSocials/Google/Google";
 
 
 const Register = () => {
@@ -152,7 +152,7 @@ const Register = () => {
                 {errors?.confirmPwd && <p>{errors?.confirmPwd?.message}</p>}
 
                 <div className='auth__icons'>
-                    <p className='auth__icon'><AiFillGoogleCircle/></p>
+                    <Google/>
                     <p className='auth__icon'><FaGithub/></p>
                 </div>
 
