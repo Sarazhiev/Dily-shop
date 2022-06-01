@@ -1,11 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {AiFillGoogleCircle} from 'react-icons/ai'
 import {FiMail} from 'react-icons/fi'
 import {FaGithub} from 'react-icons/fa'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Google from "./RegisterOrLoginFromSocials/Google/Google";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import {auth} from "../../firebase/firebase";
+import {registerUser} from "../../redux/reducers/user";
+import {useDispatch} from "react-redux";
 
 const Auth = () => {
+    const [phone, setPhone] = useState('');
+    const [otp, setOtp] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const createOrLoginForNumber = () => {
+        if (phone.length >= 12) {
+            window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+                'size': 'invisible',
+                'callback': (response) => {
+                }
+            }, auth);
+            const appVerifier = window.recaptchaVerifier;
+            signInWithPhoneNumber(auth, phone, appVerifier)
+                .then((confirmationResult) => {
+                    window.confirmationResult = confirmationResult;
+                    // ...
+                }).catch((error) => console.log(error));
+        }
+    };
+
     return (
         <div className='auth'>
             <div className='auth__left'>
@@ -76,10 +101,14 @@ const Auth = () => {
                 <h2 className='auth__register'>Вход и регистрация</h2>
                 <p className='auth__phone'>Введите ваш номер телефона и мы вышлем
                     вам код  подтверждения для регистрации</p>
-                <input className='auth__input' placeholder='+ 7 (123)-456-78-90' type="tel"/>
-                <Link to='/confirm'>
-                    <button className='auth__cont'>Продолжить</button>
-                </Link>
+                <input value={phone} onChange={(e) => setPhone(e.target.value)} className='auth__input' placeholder='+ 7 (123)-456-78-90' type="tel"/>
+                    <button className='auth__cont' onClick={() => {
+                        createOrLoginForNumber();
+                        // navigate('/confirm')
+                    }}>Продолжить</button>
+
+
+
                 <Link to='/register'>
                     <button className='auth__login'>Регистрация</button>
                 </Link>

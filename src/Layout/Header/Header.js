@@ -10,7 +10,6 @@ const Header = () => {
 
     const user = useSelector((s) => s.user.user);
     const dispatch = useDispatch();
-
     return (
         <header>
             <div className='header__top'>
@@ -53,7 +52,7 @@ const Header = () => {
 
                         </div>
                         {
-                            user ? <span className='header__nav-auth'><Link to='user' className='header__nav-auth'> <FaUserAlt/> {user.email} </Link>/<Link to='auth' className='header__nav-auth' onClick={() => {
+                            user.email.length ? <span className='header__nav-auth'><Link to='user' className='header__nav-auth'> <FaUserAlt/> {user.email} </Link>/<Link to='auth' className='header__nav-auth' onClick={() => {
                                 localStorage.removeItem('user');
                                 dispatch(logOutUser());
                             }
