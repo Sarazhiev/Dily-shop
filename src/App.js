@@ -15,6 +15,7 @@ import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
 import Accessories from "./pages/Accessories/Accessories";
 import Service from "./pages/Service/Service";
+import {registerUser} from "./redux/reducers/user";
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
     useEffect(() => {
         getDocs(collection(db, 'products'))
             .then((res) => dispatch(getAllProducts({arr: res.docs.map(el => ({...el.data(), id: el.id}))})))
+    }, []);
+    useEffect(() => {
+        dispatch(registerUser({obj: JSON.parse(localStorage.getItem('user'))}))
     }, []);
 
     return (

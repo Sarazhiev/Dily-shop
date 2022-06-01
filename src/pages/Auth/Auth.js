@@ -89,7 +89,6 @@ const Auth = () => {
                 <p className='auth__text'>или продолжить через соцсети</p>
                 <div className='auth__icons'>
                     <p className='auth__icon'><AiFillGoogleCircle/></p>
-                    <p className='auth__icon'><FiMail/></p>
                     <p className='auth__icon'><FaGithub/></p>
                 </div>
 
