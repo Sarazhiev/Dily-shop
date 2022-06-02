@@ -170,5 +170,36 @@
       justify-content: center;
       cursor: pointer;
     }
+    &__bar {
+      left: 100px;
+
+      background: #FFFFFF;
+      border-radius: 10px;
+      position: absolute;
+      z-index: 10;
+      padding: 30px;
+      filter: drop-shadow(0px 4px 12px rgba(54, 58, 69, 0.2));
+
+    }
+    &__bar2 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 152%;
+      display: flex;
+      align-items: center;
+      color: #363A45;
+      column-gap: 15px;
+      transition: .5s;
+      &:hover {
+        color: #00C65E;
+        transition: .5s;
+      }
+    }
+    &__bar3 {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      color: #00C65E;
+    }
   }
 }
