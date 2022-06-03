@@ -4,7 +4,8 @@ const userReducer = createSlice({
     name: 'user',
     initialState: {
         user: {
-            email: ''
+            email: '',
+            phoneNumber : ''
         }
     },
     reducers: {
@@ -13,7 +14,8 @@ const userReducer = createSlice({
         },
         logOutUser : (state) => {
             state.user = {
-                email: ''
+                email: '',
+                phoneNumber : ''
             }
         }
     }

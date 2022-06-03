@@ -1,35 +1,50 @@
 import React, {useState} from 'react';
-import {AiFillGoogleCircle} from 'react-icons/ai'
-import {FiMail} from 'react-icons/fi'
 import {FaGithub} from 'react-icons/fa'
 import {Link, useNavigate} from "react-router-dom";
 import Google from "./RegisterOrLoginFromSocials/Google/Google";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import {auth} from "../../firebase/firebase";
-import {registerUser} from "../../redux/reducers/user";
 import {useDispatch} from "react-redux";
+import {registerUser} from "../../redux/reducers/user";
+import Github from "./RegisterOrLoginFromSocials/Gihub/Github";
 
 const Auth = () => {
     const [phone, setPhone] = useState('');
     const [otp, setOtp] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const createOrLoginForNumber = () => {
+        console.log(phone)
         if (phone.length >= 12) {
-            window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
-                'size': 'invisible',
+            signInWithPhoneNumber(auth, phone,      window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
                 'callback': (response) => {
                 }
-            }, auth);
-            const appVerifier = window.recaptchaVerifier;
-            signInWithPhoneNumber(auth, phone, appVerifier)
+            }, auth))
                 .then((confirmationResult) => {
                     window.confirmationResult = confirmationResult;
-                    // ...
-                }).catch((error) => console.log(error));
+                }).catch((error) => {
+                console.log(error)
+            });
+
         }
     };
+
+    const confirmLoginFromNumbers = (e) => {
+
+        let code = e.target.value ;
+        setOtp(code);
+        if (code.length === 6) {
+            let confirmationResult = window.confirmationResult;
+            confirmationResult.confirm(code).then((result) => {
+                // User signed in successfully.
+                const user = result.user;
+                dispatch(registerUser({obj: user}));
+                localStorage.setItem('user', JSON.stringify(user));
+                navigate('/')
+            }).catch((error) => console.log(error));
+        }
+    }
+
 
     return (
         <div className='auth'>
@@ -102,12 +117,16 @@ const Auth = () => {
                 <p className='auth__phone'>Введите ваш номер телефона и мы вышлем
                     вам код  подтверждения для регистрации</p>
                 <input value={phone} onChange={(e) => setPhone(e.target.value)} className='auth__input' placeholder='+ 7 (123)-456-78-90' type="tel"/>
-                    <button className='auth__cont' onClick={() => {
+                    <button type='button' className='auth__cont' onClick={() => {
                         createOrLoginForNumber();
                         // navigate('/confirm')
                     }}>Продолжить</button>
 
 
+
+                <div>
+                    <input value={otp} onChange={confirmLoginFromNumbers} className='auth__input' type="number"/>
+                </div>
 
                 <Link to='/register'>
                     <button className='auth__login'>Регистрация</button>
@@ -116,10 +135,12 @@ const Auth = () => {
                     <button className='auth__login'>Войти</button>
                 </Link>
 
+                <div id='sign-in-button'/>
+
                 <p className='auth__text'>или продолжить через соцсети</p>
                 <div className='auth__icons'>
                     <Google/>
-                    <p className='auth__icon'><FaGithub/></p>
+                    <p className='auth__icon'><Github/></p>
                 </div>
 
                 <Link to='/' className='home'>Вернуться на главную страницу</Link>

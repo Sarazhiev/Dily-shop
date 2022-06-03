@@ -16,6 +16,7 @@ import Login from "./pages/Auth/Login/Login";
 import Accessories from "./pages/Accessories/Accessories";
 import Service from "./pages/Service/Service";
 import {registerUser} from "./redux/reducers/user";
+import AddProduct from "./pages/AddProduct/AddProduct";
 
 
 function App() {
@@ -27,8 +28,12 @@ function App() {
         getDocs(collection(db, 'products'))
             .then((res) => dispatch(getAllProducts({arr: res.docs.map(el => ({...el.data(), id: el.id}))})))
     }, []);
+
     useEffect(() => {
-        dispatch(registerUser({obj: JSON.parse(localStorage.getItem('user'))}))
+        if (localStorage.getItem('user') !== null){
+            dispatch(registerUser({obj: JSON.parse(localStorage.getItem('user'))}))
+    }
+
     }, []);
 
     return (
@@ -45,6 +50,7 @@ function App() {
                 <Route path='/confirm' element={<Confirm/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
+                <Route path='/add' element={<AddProduct/>}/>
             </Routes>
         </div>
     );

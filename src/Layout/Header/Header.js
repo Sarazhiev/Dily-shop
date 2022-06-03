@@ -53,7 +53,7 @@ const Header = () => {
 
                         </div>
                         {
-                            user.email.length ? <span className='header__nav-auth'><Link to='user' className='header__nav-auth'> <FaUserAlt/> {user.email} </Link>/<Link to='auth' className='header__nav-auth' onClick={() => {
+                            user.email?.length || user.phoneNumber?.length ? <span className='header__nav-auth'><Link to='user' className='header__nav-auth'> <FaUserAlt/> {user.email || user.phoneNumber} </Link>/<Link to='auth' className='header__nav-auth' onClick={() => {
                                 localStorage.removeItem('user');
                                 dispatch(logOutUser());
                             }
