@@ -46,4 +46,4 @@ export const createProduct = (image, setProgress, data, dispatch) => {
                            .then((res) => dispatch(getAllProducts({arr: res.docs.map(el => ({...el.data(), id: el.id}))})))
                     })
         })
-}
+};
