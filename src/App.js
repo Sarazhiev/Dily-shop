@@ -17,6 +17,7 @@ import Accessories from "./pages/Accessories/Accessories";
 import Service from "./pages/Service/Service";
 import {registerUser} from "./redux/reducers/user";
 import AddProduct from "./pages/AddProduct/AddProduct";
+import Buying from "./pages/Buying/Buying";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
                     <Route path='shops' element={<Shops/>}/>
                     <Route path='charity' element={<Charity/>}/>
                     <Route path='service' element={<Service/>}/>
+                    <Route path='buying' element={<Buying/>}/>
                 </Route>
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/confirm' element={<Confirm/>}/>
