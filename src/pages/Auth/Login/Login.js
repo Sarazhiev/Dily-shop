@@ -1,17 +1,16 @@
-import React, {useContext} from 'react';
-import {Link, NavLink, useNavigate} from "react-router-dom"
+import React from 'react';
+import {Link, useNavigate} from "react-router-dom"
 import {useForm} from "react-hook-form";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword  } from "firebase/auth";
 import {auth} from "../../../firebase/firebase";
-import {registerUser} from "../../../redux/reducers/user";
+import {findUser} from "../../../redux/reducers/user";
 import {useDispatch} from "react-redux";
 
 
 const Login = () => {
-
-
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const {
         register,
         handleSubmit,
@@ -21,19 +20,26 @@ const Login = () => {
         reset
     } = useForm();
 
-    const loginUser = (data) => {
-        signInWithEmailAndPassword(auth, data.email, data.password)
+    const loginUser = (data) =>{
+        signInWithEmailAndPassword (auth, data.email, data.password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                dispatch(registerUser({obj: user}));
+                user.phoneNumber = data.phone;
+                user.displayName = data.login;
+
+                // console.log(userCredential);
+                dispatch(findUser( {user} ));
                 localStorage.setItem('user', JSON.stringify(user));
                 reset();
                 navigate('/')
-                // ...
             })
-            .catch((error) => console.log(`bad request ${error}`));
+            .catch((error) => {
+                console.log(`bad request ${error}`)
+            });
     };
+
+
 
     return (
         <section className='login'>

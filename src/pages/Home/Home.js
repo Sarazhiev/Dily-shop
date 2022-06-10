@@ -1,19 +1,17 @@
 import React from 'react';
-import Banner from "./Banner/Banner";
+import Banner from "./Announcement/Banner/Banner";
 import Slider from "./Slider/Slider";
-import Selection from "./Selection/Selection";
-import Bar from "./Bar/Bar";
-
-
+import Compilation from "./Compilation/Compilation";
+import TradeSteps from "../Buying/TradeSteps/TradeSteps";
 
 const Home = () => {
     return (
-        <main>
-            <Bar/>
+        <div>
             <Banner/>
             <Slider/>
-            <Selection/>
-        </main>
+            <Compilation/>
+            <TradeSteps shadow={'shadow-box'}/>
+        </div>
     );
 };
 

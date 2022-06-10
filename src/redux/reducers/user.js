@@ -4,21 +4,20 @@ const userReducer = createSlice({
     name: 'user',
     initialState: {
         user: {
-            email: '',
-            phoneNumber : ''
+            email: ''
         }
     },
     reducers: {
-        registerUser : (state, action) => {
-            state.user = action.payload.obj
+        findUser: (state, action) => {
+            state.user = action.payload.user
         },
-        logOutUser : (state) => {
+
+        logOutUser: (state) => {
             state.user = {
-                email: '',
-                phoneNumber : ''
+                email: ''
             }
         }
     }
 });
 export default userReducer.reducer
-export const {registerUser, logOutUser} = userReducer.actions;
+export const {findUser, logOutUser} = userReducer.actions;

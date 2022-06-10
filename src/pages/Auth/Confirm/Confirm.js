@@ -1,26 +1,7 @@
-import React, {useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
-import {registerUser} from "../../../redux/reducers/user";
-import {useDispatch} from "react-redux";
+import React from 'react';
+import {Link} from "react-router-dom";
 
 const Confirm = () => {
-    const [otp, setOtp] = useState('');
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const confirmLoginFromNumbers = () => {
-        if (otp.length === 6) {
-            let confirmationResult = window.confirmationResult;
-            confirmationResult.confirm(otp).then((result) => {
-                // User signed in successfully.
-                const user = result.user;
-                dispatch(registerUser({obj: user}));
-                localStorage.setItem('user', JSON.stringify(user));
-                navigate('/')
-            }).catch((error) => console.log(error));
-        }
-    }
-
     return (
         <div className='auth'>
             <div className='auth__left'>
@@ -90,18 +71,12 @@ const Confirm = () => {
             <div className='auth__right'>
                 <h2 className='auth__register'>+ 7 (123)-456-78-90</h2>
                 <p className='auth__phone'>Мы отправили вам смс с кодом подтверждения</p>
-                <input placeholder='Введите код из SMS' value={otp} onChange={(e) => {
-                    setOtp(e.target.value);
-
-                }} className='auth__input' type="text"/>
-                <button className='auth__cont' onClick={confirmLoginFromNumbers}>Продолжить</button>
+                <input className='auth__input' type="text" placeholder='Введите код из SMS'/>
+                <button className='auth__cont'>Продолжить</button>
                 <p className='auth__again'>Отправить код еще раз</p>
                 <Link to='/auth'>
                     <p className='auth__back'>Назад</p>
                 </Link>
-
-            </div>
-            <div id='sign-in-button'>
 
             </div>
         </div>
