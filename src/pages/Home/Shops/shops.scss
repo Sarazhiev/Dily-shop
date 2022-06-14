@@ -1,9 +1,120 @@
 .shops{
   padding: 57px 0 100px;
+  display: flex;
+  flex-direction: column;
   &__{
 
+    &banner{
+        display: flex;
+      margin-left: -20px;
+      margin-bottom: 80px;
+    }
+    &top-row{
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &top-card{
+      cursor: pointer;
+          padding: 15px 15px 20px;
+          width: calc(20% - 20px);
+          box-shadow: 1px 2px 16px 3px rgba(54, 58, 69, 0.08);
+          border-radius: 10px;
+          transition: all .3s;
+          &:hover{
+            background-color: #5777c6!important;
+          }
+          &-icon{
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            font-family: 'TT Norms', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 150%;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+          }
+          &-info{
+            display: flex;
+            justify-content: space-between;
+          }
+      &-btn{
+        z-index: 10;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      &-rate{
+        padding: 10px;
+      }
+      &-stars{
+        column-gap: 3px;
+        display: inline-flex;
+        margin-left: 5px;
+      }
+      &-city{
+        padding: 0 16px;
+        font-family: 'TT Norms',sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 140%;
+        color: #363A45;
+      }
 
 
+
+    }
+
+
+
+  }
+}
+
+.shop{
+  &__{
+    &main{
+      display: flex;
+
+    }
+
+    &banner{
+      margin: 50px 0 20px;
+      background-color: #00C65E;
+      border-radius: 10px;
+      color: white;
+      padding: 30px;
+      display: flex;
+      &-left{
+        display: flex;
+        column-gap: 30px;
+        align-items: center;
+      }
+      &-descr{
+        display: flex;
+        row-gap: 20px;
+        flex-direction: column;
+      }
+      &-title{
+        font-family: 'TT Norms',sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 150%;
+        letter-spacing: 0.5px;
+      }
+      &-subtitle{
+        font-family: 'TT Norms',sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+      }
+    }
 
   }
 }

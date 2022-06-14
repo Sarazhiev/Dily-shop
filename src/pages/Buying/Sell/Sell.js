@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import addPh from "../../Advertisement/addPhoto.png";
 import {useForm} from "react-hook-form";
 import {createProduct} from "../../../firebase/firebaseFunction";
 import {useDispatch, useSelector} from "react-redux";
@@ -81,7 +80,7 @@ const Sell = () => {
                     <div className={'sell__form-block'}>
                         <p className={'sell__form-addPhoto_top'}>Перетащите фото или <label htmlFor={'file'} className={'advertisement__form-addPhoto_link'} >выберите их на своем компьютере</label></p>
                         <input {...register("image")} style={{display:'none'}} type="file" id={'file'}/>
-                        <img className={'sell__form-addPh'} src={addPh} alt=""/>            {progress}
+                        <img className={'sell__form-addPh'} src='' alt=""/>            {progress}
 
                     </div>
                 </div>
