@@ -8,6 +8,7 @@
   font-style: normal;
 }
 
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -34,7 +35,8 @@
   color: white;
   transition: all .3s;
   border-radius: 10px;
-  border: none;
+  border: 1px solid transparent;
+  //border: none;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -43,15 +45,24 @@
   &:hover{
     background: white;
     color: #00C65E;
+    border: 1px solid #00C65E;
   }
 }
 
 
 @import "./Layout/Header/header";
+@import "./Layout/Footer/footer";
 @import "./pages/Home/home";
 @import "pages/Auth/auth";
 @import "./pages/Auth/Register/register";
 @import "pages/Auth/Login/login";
 @import "pages/Phones/phones";
 @import "pages/Service/service";
+@import "pages/Advertisement/advertisement";
 @import "pages/Buying/buying";
+@import "pages/Online/online";
+@import "pages/Service/Faults/faults";
+@import "pages/Service/Price/price";
+@import "pages/Service/Jobs/jobs";
+@import "pages/Service/Confidence/confidence";
+@import "pages/Service/ Question/question";

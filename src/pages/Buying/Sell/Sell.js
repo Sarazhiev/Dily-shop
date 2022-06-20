@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import addPh from "../../Advertisement/addPhoto.png";
 import {useForm} from "react-hook-form";
 import {createProduct} from "../../../firebase/firebaseFunction";
 import {useDispatch, useSelector} from "react-redux";
@@ -14,11 +15,17 @@ const Sell = () => {
     const dispatch = useDispatch();
     const [progress, setProgress] = useState(0);
 
-    const addProductHandler = async (data) =>{
-       await createProduct(data.image[0], setProgress, {...data, creator : user.email === 'admin123@mail.ru' ? 1 : user.uid}, dispatch, user);
+    // const addProductHandler = async (data) =>{
+    //    await createProduct(data.image[0], setProgress, {...data, creator : user.email === 'admin123@mail.ru' ? 1 : user.uid}, dispatch, user);
+    //
+    //     await reset()
+    // };
+     const addProductHandler = async (data) =>{
+       await createProduct(data.image[0], setProgress, {...data, creator : data.creator}, dispatch, user);
 
         await reset()
     };
+
 
     console.log(user);
 
@@ -75,12 +82,25 @@ const Sell = () => {
                     </select>
                 </div>
 
+                  <div className={'sell__form-row'}>
+                    <h3 className={'sell__form-title'}>creator</h3>
+                    <select {...register("creator")} className={'sell__form-input'} >
+                        <option style={{display: 'none'}} value="">Не выбрано</option>
+                        <option value="Диваны тут">Диваны тут</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="М-ВИДЕО">М-ВИДЕО</option>
+                        <option value="ДЕТСКИЙ МИР">ДЕТСКИЙ МИР</option>
+                    </select>
+                </div>
+
+
+
                 <div className={'sell__form-row'}>
                     <h3 className={'sell__form-title'} >Фото/ видео</h3>
                     <div className={'sell__form-block'}>
                         <p className={'sell__form-addPhoto_top'}>Перетащите фото или <label htmlFor={'file'} className={'advertisement__form-addPhoto_link'} >выберите их на своем компьютере</label></p>
                         <input {...register("image")} style={{display:'none'}} type="file" id={'file'}/>
-                        <img className={'sell__form-addPh'} src='' alt=""/>            {progress}
+                        <img className={'sell__form-addPh'} src={addPh} alt=""/>            {progress}
 
                     </div>
                 </div>
