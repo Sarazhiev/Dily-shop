@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'TT Norms', sans-serif;
+  font-style: normal;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.overlay{
+  width: 100vw;
+  height: 100vh;
+  //background-color: grey;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.icon {
+  color: #00C65E;
+}
+.shadow-box{
+  box-shadow: 1px 2px 16px 3px rgba(54, 58, 69, 0.08);
+  border-radius: 8.00611px;
+}
+.greenBtn{
+  background: #00C65E;
+  color: white;
+  transition: all .3s;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  //border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  cursor: pointer;
+  &:hover{
+    background: transparent;
+    color: #00C65E;
+    border: 1px solid #00C65E;
+  }
+  &:hover path{
+    fill: #00C65E;
+  }
+}
+
+
+@import "./Layout/Header/header";
+@import "./Layout/Footer/footer";
+@import "./pages/Home/home";
+@import "pages/Auth/auth";
+@import "./pages/Auth/Register/register";
+@import "pages/Auth/Login/login";
+@import "pages/Phones/phones";
+@import "pages/Service/service";
+@import "pages/Advertisement/advertisement";
+@import "pages/Buying/buying";
+@import "pages/Online/online";
+@import "pages/Service/Faults/faults";
+@import "pages/Service/Price/price";
+@import "pages/Service/Jobs/jobs";
+@import "pages/Service/Confidence/confidence";
+@import "pages/Service/ Question/question";
+@import "pages/Product/product";

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "2gis-maps": "^3.7.1",
+    "@2gis/mapgl": "^1.28.0",
     "@firebase/firestore": "^3.4.9",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,6 +13,7 @@
     "firebase": "^9.8.2",
     "install": "^0.13.0",
     "react": "^18.1.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.31.3",
     "react-icons": "^4.3.1",
