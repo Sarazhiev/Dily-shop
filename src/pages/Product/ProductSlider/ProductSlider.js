@@ -13,8 +13,8 @@ const ProductSlider = () => {
     const params = useParams();
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const product = useSelector(s => s.products.products);
-    console.log(product);
-    const [prodImg, setProdImg] = useState('');
+    // console.log(product);
+    // const [prodImg, setProdImg] = useState('');
 
 
     return (
@@ -24,7 +24,7 @@ const ProductSlider = () => {
                     "--swiper-navigation-color": "#fff",
                     "--swiper-pagination-color": "#fff",
                 }}
-                Mousewheel={false}
+                // Mousewheel={false}
                 spaceBetween={100}
                 slidesPerView={1}
 

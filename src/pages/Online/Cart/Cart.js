@@ -4,9 +4,13 @@ import {useNavigate} from "react-router-dom";
 import CardCart from "./CartCard/CardCart";
 import {useSelector} from "react-redux";
 import Sell from "../../Buying/Sell/Sell";
+import Vend from "../../Home/Charity/Vend/Vend";
 
 const Cart = () => {
     const user = useSelector(s => s.user.user);
+    let price = 0;
+    user?.cart?.map(item => price += +item.price * item.count);
+    console.log(price);
     const navigate = useNavigate();
 
     return (
@@ -18,10 +22,10 @@ const Cart = () => {
                     <div className={'cart__content-column'}>
 
                         {
-                                user.cart[0]?
+                                user?.cart && user?.cart[0]?
                                 user.cart.map(item => (
                                 <div key={item.id}>
-                                    <CardCart image={item.image} title={item.title} price={item.price}/>
+                                    <CardCart id={item.id} image={item.image} title={item.title} price={item.price}/>
                                 </div>
                                 ))
                                     :
@@ -41,18 +45,28 @@ const Cart = () => {
                         </div>
                         <div className="cart__sale">
                             <p className="cart__text">Скидки и бонусы</p>
-                            <p className="cart__sale-num">- 5400 ₽</p>
+                            <p className="cart__sale-num">- {0} ₽</p>
                         </div>
                         <div className="cart__result">
                             <p className="cart__sale-num">Всего</p>
-                            <p className="cart__only">70 000 ₽</p>
+                            <p className="cart__only">{price} ₽</p>
                         </div>
                     </div>
                 </div>
-                <button className="cart__figuration greenBtn" onClick={() => navigate("../Formalize")}>Перейти к
-                    оформлению
-                </button>
+                {
+                    user?.cart && user?.cart[0] ?
+                        <button className="cart__figuration greenBtn" onClick={() => navigate("../Formalize")}>Перейти к
+                            оформлению
+                        </button>
+                        :
+                        <button className="cart__figuration greenBtn" onClick={() => {navigate("../online"); window.scrollTo('pageYOffset', 0);}}>Перейти в каталог
+                        </button>
+
+                }
+
+
             </div>
+
         </div>
     );
 };

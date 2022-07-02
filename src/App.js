@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Routes, Route} from "react-router-dom"
 import Home from "./pages/Home/Home";
 import Shops from "./pages/Home/Shops/Shops";
-// import Charity from "./pages/Home/Charity/Charity";
 import Layout from "./Layout/Layout";
 import Auth from "./pages/Auth/Auth";
 import './app.scss'
@@ -30,6 +29,8 @@ import Send from "./pages/Home/Charity/Request/Send/Send";
 import Product from "./pages/Product/Product";
 import Formalize from "./pages/Online/Cart/Formalize/Formalize";
 import Organizations from "./pages/Home/Organizations/Organizations";
+import Parishes from "./pages/Home/Parishes/Parishes";
+import AboutUs from "./pages/Home/Orphanage/AboutUs/AboutUs";
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
     getDocs(collection(db, 'products'))
         .then((res) => dispatch(getAllProducts({arr: res.docs.map(el => ({...el.data(), id:el.id}))})));
 
-   localStorage.getItem('user') ?
+   localStorage.getItem('user')?
     dispatch(findUser({user: JSON.parse(localStorage.getItem('user')) })) : console.log('empty local')
   }, []);
 
@@ -67,6 +68,8 @@ function App() {
          <Route path='orphanage' element={<Orphanage/>}/>
          <Route path='formalize' element={<Formalize/>}/>
          <Route path='organizations' element={<Organizations/>}/>
+         <Route path='parishes' element={<Parishes/>}/>
+         <Route path='aboutUs' element={<AboutUs/>}/>
        </Route>
        <Route path='data' element={<Data/>}/>
        <Route path='send' element={<Send/>}/>
